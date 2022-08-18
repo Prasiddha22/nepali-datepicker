@@ -40,11 +40,11 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = props => {
 
   const toEnglish = useCallback(
     (val: string): string => numberTrans(val, ENGLISH),
-    [numberTrans]
+    []
   );
   const returnDateValue = useCallback(
     (val: string): string => numberTrans(val, options.valueLocale),
-    [options.valueLocale, numberTrans]
+    [options.valueLocale]
   );
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = props => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showCalendar, handleClickOutside]);
+  }, [showCalendar]);
 
   useLayoutEffect(() => {
     if (showCalendar && nepaliDatePickerWrapper.current) {
@@ -111,7 +111,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = props => {
         }
       );
     },
-    [onChange, returnDateValue]
+    [onChange]
   );
 
   const handleOnDaySelect = useCallback(
@@ -129,7 +129,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = props => {
         }
       );
     },
-    [onSelect, options.closeOnSelect, returnDateValue]
+    [onSelect]
   );
 
   const datepickerEvents: NepaliDatepickerEvents = {

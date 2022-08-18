@@ -84,7 +84,7 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
         }
       }
     );
-  }, [calenderDate.bsMonth, calenderDate.bsYear, events]);
+  }, []);
 
   const onNextMonthClickHandler = useCallback(() => {
     executionDelegation(
@@ -162,7 +162,7 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
         }
       );
     },
-    [calenderDate, events]
+    [calenderDate]
   );
 
   const onMonthSelectHandler = useCallback(
@@ -186,27 +186,24 @@ const Calender: FunctionComponent<CalenderProps> = ({ value, events }) => {
         }
       );
     },
-    [calenderDate, events]
+    [calenderDate]
   );
 
-  const onDaySelectHandler = useCallback(
-    (date: SplittedDate) => {
-      executionDelegation(
-        () => {
-          const newDate = parseBSDate(stitchDate(date));
+  const onDaySelectHandler = useCallback((date: SplittedDate) => {
+    executionDelegation(
+      () => {
+        const newDate = parseBSDate(stitchDate(date));
 
-          setCalenderDate(newDate);
-          setSelectedDate(newDate);
-        },
-        () => {
-          if (events.daySelect) {
-            events.daySelect(date);
-          }
+        setCalenderDate(newDate);
+        setSelectedDate(newDate);
+      },
+      () => {
+        if (events.daySelect) {
+          events.daySelect(date);
         }
-      );
-    },
-    [events]
-  );
+      }
+    );
+  }, []);
 
   return (
     <div className="calender">
