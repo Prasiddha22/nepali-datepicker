@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "nepali-datepicker",
+  "name": "@prasiddha/nepali-datepicker",
   "author": "prasiddha22",
   "module": "dist/nepali-datepicker.esm.js",
   "size-limit": [
