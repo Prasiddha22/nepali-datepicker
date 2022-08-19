@@ -61,7 +61,6 @@
     "typescript": "^3.9.10"
   },
   "dependencies": {
-    "@prasiddha/nepali-datepicker": "^0.1.0",
     "bikram-sambat-js": "^1.0.1",
     "nepali-number": "^1.0.3"
   }
